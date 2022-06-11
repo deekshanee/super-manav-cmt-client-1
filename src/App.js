@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import { ListGroup, Badge } from "react-bootstrap";
+import { CONFIG_URL } from "./config";
 
 function App() {
   const [error, setError] = useState(null);
@@ -17,9 +18,7 @@ function App() {
     });
   };
   useEffect(() => {
-    fetch(
-      "http://localhost:3000/api/cmt/get-client-config/?appId=62a4c7c881c5f7827c0028a9"
-    )
+    fetch(CONFIG_URL)
       .then((res) => res.json())
       .then(
         (result) => {
@@ -46,24 +45,23 @@ function App() {
   }
   return (
     <div>
-      
-        <ListGroup as="ol" numbered>
-          {responseObject.map((r) => {
-          return   <ListGroup.Item
+      <ListGroup as="ol" numbered>
+        {responseObject.map((r) => {
+          return (
+            <ListGroup.Item
               as="li"
               className="d-flex justify-content-between align-items-start"
             >
               <div className="ms-2 me-auto">
                 <div className="fw-bold">{r.title}</div>
-                
               </div>
               <Badge bg="primary" pill>
                 {r.id}
               </Badge>
-            </ListGroup.Item>;
-          })}
-        </ListGroup>
-      
+            </ListGroup.Item>
+          );
+        })}
+      </ListGroup>
     </div>
   );
 }
