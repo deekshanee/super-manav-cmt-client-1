@@ -1,1 +1,1 @@
-export const CONFIG_URL = "http://localhost:3000/api/cmt/get-client-config/?appId=62a4c7c881c5f7827c0028a9";
+export const CONFIG_URL = "http://localhost:3000/api/cmt/get-client-config/?appId=62a4f72977979a833c3dfe87";
